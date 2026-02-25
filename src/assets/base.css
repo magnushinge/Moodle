@@ -5,4 +5,27 @@
   /*       Project globals      */  
   /******************************/  
   font-family: "Poppins", sans-serif;
+
+
+  /******************************/  
+  /*      Project variables     */  
+  /******************************/  
+  /* Colors */
+  --Light-lavender: #B9A3CE;
+  --SEA-red: #EA5347;
+  --light-clay: #E3A39F;
+  --Deep-blue: #002430;
+  --Petrol: #3C7D87;
+  --Aqua: #86CBD2;
+  --Mint-green: #97DABA;
+  --Sand: #DED4D2;
+
+  --Black: #202327;
+  --White: #FFFFFF;
+  --Grey: #D3D3D3;
+
+  /* Fonts */
+  --UI-small: ;
+  --UI-medium: ;
+  --UI-large: ;
 }

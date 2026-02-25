@@ -1,33 +1,40 @@
 <script setup>
+  import api_key from '../assets/api.vue';
   /* import { } from 'lucide-vue-next'; */
+
+  defineOptions({
+    extends: api_key
+  })
 </script> 
 
 <template>
   <main>
+
     <section class="navSection">
       <h1>Courses</h1>
-      <p>{{ moodle_data.course_name }}</p>
+      <article>
+        <button @click="">
+          {{moodle_data.course_name }}
+        </button>
+      </article>
+    </section>
+
+    <section class="navSection">
     </section>
   </main>
 </template>
 
 <script>
-  export default {
+  export default = {
     data(){
       return {
-        moodle_data:[]
       }
     },
 
     created(){
-      this.moodleAPI()
     },
 
     methods: {
-      async moodleAPI(){
-        let api = await fetch('https://lms.mironpingel.dk')
-        this.moodle_data = await api.json()
-      }
     }
   }
 </script>
