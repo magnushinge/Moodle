@@ -1,14 +1,49 @@
+@import '../assets/base.css';
 /******************************/  
 /*       Navbar globals       */  
 /******************************/  
-#navSection {
+nav {
+  height: auto;
+  
+  border-radius: 0 var(--UI-border-radius) var(--UI-border-radius) 0; 
+  border-color: var(--Grey);
+  border-style: solid;
+  border-width: var(--UI-outline-width) var(--UI-outline-width) var(--UI-outline-width) 0;
+
+  margin-top: 3rem;
+  padding: 1.5em 0 1.5em 0;  
+  height: 70vh;
+  width: 35vh;
+
+  text-decoration: none;
+}
+
+/******************************/  
+/*      Navbar sections       */  
+/******************************/  
+.navSectionHead {
+  text-align: left;
+  
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+.navSectionContent {  
+}
+.navSection {
+  margin: 0 0 2vh 0;
+}
+.navSection li {
+  margin: 0.3em 0 0 0;
+}
+.navSection span{
+  flex-grow: 1;
+}
+.navSection ul {
+  list-style: none;
 }
 
 
-/******************************/  
-/*     Navbar font/text       */  
-/******************************/  
-#navSection h1 {
-}
-#navSection p {
+.navItem {
+
 }

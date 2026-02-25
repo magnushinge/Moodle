@@ -1,6 +1,6 @@
 <script setup>
   import api_key from '../assets/api.vue';
-  /* import { } from 'lucide-vue-next'; */
+  import { ChevronDown } from 'lucide-vue-next';
 
   defineOptions({
     extends: api_key
@@ -8,33 +8,63 @@
 </script> 
 
 <template>
-  <main>
-
+  <nav>
+    
     <section class="navSection">
-      <h1>Courses</h1>
-      <article>
-        <button @click="">
-          {{moodle_data.course_name }}
-        </button>
-      </article>
+      <div class="navSectionHead" @click="toggle_section()">
+        <span><h1>Courses</h1></span>
+        <ChevronDown size="var(--UI-large-icon)"/> 
+      </div>
+      <div class="navSectionContent" v-if="this.section_open">
+        <ul>
+          <!-- Ville lave en v-for af courses men API'en har kun 1 course-->
+          <li class="navItem" @click='selected_course=moodle_data.course_name'>
+            <span>{{ moodle_data.course_name }}</span>
+          </li>
+        </ul>
+      </div>
     </section>
 
-    <section class="navSection">
+    <section class="navSection" v-if="selected_course">
+      <div class="navSectionHead">
+        <span><h1>{{ selected_course }}</h1></span>
+      </div>
+      <div class="navSectionContent"> 
+        <ul>
+          <!-- 
+          Jeg ville have taget dem her fra API'en, men de er ikke i den
+          Ville have lavet et for loop, med dem. De her 3 er dog i alle courses 
+          Så jeg valgte at putte dem ind for at vise hvordan det ville se ud.
+          -->
+          <li>Participants</li>
+          <li>Competencies</li>
+          <li>Grades</li>
+        </ul>
+      </div>
     </section>
-  </main>
+
+  </nav>
 </template>
 
+<style>
+  @import './sidebar.css';
+</style>
+
 <script>
-  export default = {
+  export default {
     data(){
       return {
+        section_open: true
       }
     },
 
     created(){
     },
-
+    
     methods: {
+      toggle_section(){
+        this.section_open = !this.section_open
+      },
     }
   }
 </script>
