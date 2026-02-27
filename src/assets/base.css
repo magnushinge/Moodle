@@ -51,7 +51,3 @@ h1 {
   font-size: var(--UI-large-text);
 }
 
-#assembled{
-  display: flex;
-
-}

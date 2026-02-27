@@ -5,7 +5,6 @@
         selected_course: "",
         selected_subcourse: "",
         moodle_data:[],
-        selected_subcourse:[]
       }
     },
 
@@ -18,7 +17,7 @@
       async moodleAPI(){
         let api = await fetch('https://lms.mironpingel.dk')
         this.moodle_data = await api.json()
-      }
+      },
     }
   }
   export default api_key;

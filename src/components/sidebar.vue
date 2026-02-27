@@ -1,7 +1,6 @@
 <script setup>
   import api_key from '../assets/api.vue';
-  import { ChevronDown } from 'lucide-vue-next';
-  import calendar from '../assets/calendar.vue';
+  import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-vue-next';
 
   defineOptions({
     extends: api_key
@@ -53,8 +52,41 @@
               :class="{ 'subcourseSelected': selected_subcourse  === 'Grades' }">
             Grades
           </li>
-          <calendar/> 
+
+          <div id="monthSelect">
+            <ChevronLeft/> January 2026 <ChevronRight/>
+          </div>
+
+          <div id="calendarContainer">
+            <section id="dayLabels">
+              <p>M</p>
+              <p>T</p>
+              <p>W</p>
+              <p>T</p>
+              <p>F</p>
+              <p>S</p>
+              <p>S</p>
+            </section>
+            <section id="days" >
+              <p v-for="n in 31" 
+              @click="selected_subcourse =  2026-1-n" 
+              :key="n"
+              :class="{ 'selectedDay': selected_subcourse === 2026-1-n }">
+                {{ n }}
+              </p>
+            </section>
+          </div>
+
+          <div id="daySwitch">
+            <div id="dayBack">
+              <ChevronLeft/><p>Back</p>
+            </div>
+            <div id="dayForwards">
+              <p>Forwards</p><ChevronRight/>
+            </div>
+          </div>
         </ul>
+      
       </div>
     </section>
 
@@ -62,6 +94,7 @@
 </template>
 
 <style>
+  @import './calendar.css';
   @import './sidebar.css';
 </style>
 
