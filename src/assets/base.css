@@ -23,7 +23,7 @@
   --Background-color: var(--White);
 
   /* Fonts */
-  --UI-small-text: 10px;
+  --UI-small-text: 0.7vmax;
   --UI-medium-text: 1vmax;
   --UI-large-text: 1.3vmax;
   --UI-large-icon: 1.5vmax;

@@ -1,6 +1,7 @@
 <script setup>
   import api_key from '../assets/api.vue';
   import { ChevronDown } from 'lucide-vue-next';
+  import calendar from '../assets/calendar.vue';
 
   defineOptions({
     extends: api_key
@@ -9,7 +10,6 @@
 
 <template>
   <nav>
-    
     <section class="navSection">
       <div class="navSectionHead" @click="toggle_section()">
         <span><h1>Courses</h1></span>
@@ -53,9 +53,7 @@
               :class="{ 'subcourseSelected': selected_subcourse  === 'Grades' }">
             Grades
           </li>
-          <ul v-for="week of moodle_data.weeks">
-            <li>{{ week.week_label }}</li>
-          </ul>
+          <calendar/> 
         </ul>
       </div>
     </section>

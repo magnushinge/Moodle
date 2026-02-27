@@ -1,0 +1,38 @@
+@import './base.css';
+
+#calendarContainer {
+  border-style: solid;
+  border-width: var(--UI-outline-width);
+  border-color: var(--Grey);
+  margin: 1vw 1.5vw 0 1.5vw;
+  padding: 0.5vw;
+  text-align: center;
+  border-radius: var(--Asset-border-radius);
+}
+#dayLabels{
+  margin-bottom: 0.5vw;
+}
+
+#dayLabels, #days {
+  display: grid;
+  flex-shrink: 0;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 0.5vw;
+}
+#dayLabels p, #days p {
+  font-size: var(--UI-small-text);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#days {
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 0.5vw;
+}
+#days p{
+  background-color: var(--Aqua);
+  border-radius: 100em;
+  margin: 0.1vw;
+  aspect-ratio: 1/1;
+}
