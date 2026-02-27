@@ -13,19 +13,21 @@
     <section class="navSection">
       <div class="navSectionHead" @click="toggle_section()">
         <span><h1>Courses</h1></span>
-        <ChevronDown size="var(--UI-large-icon)"/> 
+        <ChevronDown size="var(--UI-large-icon)" class="chevron-icon" :class="{ 'rotate': !section_open }" />
       </div>
       <div class="navSectionContent" v-if="this.section_open">
         <ul>
           <!-- Ville lave en v-for af courses men API'en har kun 1 course-->
-          <li class="navItem" @click='selected_course=moodle_data.course_name'>
+          <li class="navItem" 
+            @click='selected_course = moodle_data.course_name' 
+            :class="{ 'courseSelected': selected_course === moodle_data.course_name }">
             <span>{{ moodle_data.course_name }}</span>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="navSection" v-if="selected_course">
+    <section class="navSection" v-if="selected_course != '' ">
       <div class="navSectionHead">
         <span><h1>{{ selected_course }}</h1></span>
       </div>
@@ -36,9 +38,24 @@
           Ville have lavet et for loop, med dem. De her 3 er dog i alle courses 
           Så jeg valgte at putte dem ind for at vise hvordan det ville se ud.
           -->
-          <li>Participants</li>
-          <li>Competencies</li>
-          <li>Grades</li>
+          <li class="navItem"
+              @click='selected_subcourse = "Participants"'
+              :class="{ 'subcourseSelected': selected_subcourse  === 'Participants' }">
+            Participants
+          </li>
+          <li class="navItem" 
+              @click='selected_subcourse = "Competencies"'
+              :class="{ 'subcourseSelected': selected_subcourse  === 'Competencies' }">
+            Competencies
+          </li>
+          <li class="navItem" 
+              @click='selected_subcourse = "Grades"' 
+              :class="{ 'subcourseSelected': selected_subcourse  === 'Grades' }">
+            Grades
+          </li>
+          <ul v-for="week of moodle_data.weeks">
+            <li>{{ week.week_label }}</li>
+          </ul>
         </ul>
       </div>
     </section>

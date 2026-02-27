@@ -24,17 +24,33 @@ nav {
 .navSectionHead {
   text-align: left;
   
+  padding:0 0 0 1vw;
   width: 90%;
   display: flex;
   align-items: center;
 }
-.navSectionContent {  
+.chevron-icon {
+  transition: var(--UI-list-transition);
 }
+.chevron-icon.rotate {
+  transform: rotate(-90deg);
+}
+.navItem:hover {
+  background-color: var(--Grey);
+}
+.navItem.courseSelected, .navItem.subcourseSelected {
+  background-color: var(--Black);
+  color: var(--White);
+}
+
 .navSection {
   margin: 0 0 2vh 0;
 }
 .navSection li {
   margin: 0.3em 0 0 0;
+  padding:0 0 0 1.8vw;
+}
+.navSection li:hover {
 }
 .navSection span{
   flex-grow: 1;
